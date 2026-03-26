@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Criptografador de Mensagens</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    background:#0b0b0b;
+    color:#fff;
+    font-family: Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+  }
+  .box {
+    width:420px;
+    background:#111;
+    border:1px solid #222;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,.5);
+  }
+  h2 { margin-top:0; text-align:center; }
+  textarea {
+    width:100%;
+    height:120px;
+    background:#000;
+    color:#fff;
+    border:1px solid #333;
+    padding:10px;
+    resize:none;
+    margin-bottom:12px;
+    border-radius:6px;
+  }
+  button {
+    width:100%;
+    padding:12px;
+    border:none;
+    cursor:pointer;
+    background:#fff;
+    color:#000;
+    font-weight:bold;
+    border-radius:6px;
+  }
+  button:hover { background:#ccc; }
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>🔐 Gerador de Texto Criptografado</h2>
+  <textarea id="input" placeholder="Digite seu texto aqui..."></textarea>
+  <button onclick="converter()">Converter</button>
+  <textarea id="output" placeholder="Resultado criptografado..." readonly></textarea>
+</div>
+<script>
+function converter() {
+  const texto = document.getElementById('input').value;
+  if(!texto) return;
+  // Conversão simples: Base64
+  const convertido = btoa(unescape(encodeURIComponent(texto)));
+  document.getElementById('output').value = convertido;
+}
+</script>
+</body>
+</html>
